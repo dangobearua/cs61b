@@ -1,9 +1,8 @@
 public class LinkedListDeque<T> {
-
     public class Node {
-        public Node prev;
-        public T item;
-        public Node next;
+        private Node prev;
+        private T item;
+        private Node next;
 
         public Node(Node prev, T item, Node next) {
             this.prev = prev;
@@ -85,7 +84,7 @@ public class LinkedListDeque<T> {
         }
         Node p = sentinel;
         int count = 0;
-        while (count < index) {
+        while (count <= index) {
             count += 1;
             p = p.next;
         }
@@ -99,11 +98,10 @@ public class LinkedListDeque<T> {
         return helper(sentinel.next, index);
     }
 
-    public T helper(Node node, int index) {
+    private T helper(Node node, int index) {
         if (index == 0) {
             return node.item;
         }
         return helper(node.next, index - 1);
     }
-
 }
