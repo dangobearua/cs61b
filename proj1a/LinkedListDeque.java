@@ -80,7 +80,7 @@ public class LinkedListDeque<T> {
     }
 
     public T get(int index) {
-        if (index >= size || size == 0) {
+        if (index >= size || size == 0 || index < 0) {
             return null;
         }
         Node p = sentinel;
@@ -93,7 +93,7 @@ public class LinkedListDeque<T> {
     }
 
     public T getRecursive(int index) {
-        if (index >= size) {
+        if (index >= size || size == 0 || index < 0) {
             return null;
         }
         return helper(sentinel.next, index);
