@@ -44,7 +44,7 @@ public class ArrayDeque<T> {
         size += 1;
     }
 
-    public void resize(int newCapacity) {
+    private void resize(int newCapacity) {
         T[] newItems = (T[]) new Object[newCapacity];
         int j = first;
         for (int i = 0;  i < size; i += 1) {
@@ -61,7 +61,7 @@ public class ArrayDeque<T> {
         return size == 0;
     }
 
-    public boolean isFull() {
+    private boolean isFull() {
         return size == capacity;
     }
 
@@ -88,7 +88,7 @@ public class ArrayDeque<T> {
         if (first == last) {
             first = -1;
             last = -1;
-        }else {
+        } else {
             first = (first + 1) % capacity;
         }
         size -= 1;
@@ -114,7 +114,7 @@ public class ArrayDeque<T> {
         return removedItem;
     }
 
-    public void checkUsage() {
+    private void checkUsage() {
         if (capacity < 16) {
             return;
         }
